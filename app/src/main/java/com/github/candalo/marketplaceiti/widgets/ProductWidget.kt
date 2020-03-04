@@ -34,14 +34,14 @@ data class ProductWidget(
         val valueTextView = view.findViewById<TextView>(R.id.productValue)
 
         loadImage(context, imageImageView)
-        setTextStyle(context, titleTextView, title, titleColor, titleSize)
-        setTextStyle(context, subtitleTextView, subtitle, subtitleColor, subtitleSize)
-        setTextStyle(context, valueTextView, value, valueColor, valueSize)
+        setTextStyle(titleTextView, title, titleColor, titleSize)
+        setTextStyle(subtitleTextView, subtitle, subtitleColor, subtitleSize)
+        setTextStyle(valueTextView, value, valueColor, valueSize)
 
         return view
     }
 
-    private fun setTextStyle(context: Context, textView: TextView, text: String, textColor: String, textSize: Int) {
+    private fun setTextStyle(textView: TextView, text: String, textColor: String, textSize: Int) {
         textView.let {
             it.text = text
             it.setTextColor(Color.parseColor(textColor))
