@@ -1,7 +1,6 @@
 package com.github.candalo.marketplaceiti
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import br.com.zup.beagle.annotation.BeagleComponent
