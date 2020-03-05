@@ -7,10 +7,7 @@ import br.com.zup.beagle.widget.core.WidgetView
 import com.github.candalo.marketplaceiti.views.ProductControlView
 
 @RegisterWidget
-data class ProductControlWidget(
-    val productWidget: ProductWidget,
-    val controlColor: String
-) : WidgetView() {
+data class ProductControlWidget(val controlColor: String) : WidgetView() {
 
     override fun toView(context: Context): View =
         ProductControlView(context).apply {
