@@ -15,6 +15,7 @@ import com.github.candalo.marketplaceiti.views.ProductView
 
 @RegisterWidget
 data class ProductWidget(
+    val sku: String,
     val title: String,
     val titleColor: String,
     val titleSize: Int,
@@ -33,6 +34,7 @@ data class ProductWidget(
     override fun toView(context: Context): View =
         ProductView(context).apply {
             setId(this@ProductWidget.id ?: "")
+            setSku(sku)
             setTitle(title)
             setTitleColor(titleColor)
             setTitleSize(titleSize.toFloat())

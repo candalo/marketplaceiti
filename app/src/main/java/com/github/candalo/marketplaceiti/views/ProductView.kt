@@ -23,6 +23,7 @@ class ProductView @JvmOverloads constructor(
 ) : CardView(context, attrs, defStyle) {
 
     private lateinit var id: String
+    private lateinit var sku: String
     private val titleTextView: TextView
     private val subtitleTextView: TextView
     private val valueTextView: TextView
@@ -37,13 +38,17 @@ class ProductView @JvmOverloads constructor(
             isClickable = true
             isFocusable = true
             setOnClickListener {
-                (context as MainActivity).openFragment(ProductDetailFragment.newInstance(id), true)
+                (context as MainActivity).openFragment(ProductDetailFragment.newInstance(sku), true)
             }
         }
     }
 
     fun setId(id: String) {
         this.id = id
+    }
+
+    fun setSku(sku: String) {
+        this.sku = sku
     }
 
     fun setTitle(text: String) {
