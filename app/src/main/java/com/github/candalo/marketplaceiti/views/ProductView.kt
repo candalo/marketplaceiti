@@ -12,6 +12,7 @@ import br.com.zup.beagle.utils.loadView
 import br.com.zup.beagle.view.BeagleActivity
 import br.com.zup.beagle.view.ScreenRequest
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.github.candalo.marketplaceiti.MainActivity
 import com.github.candalo.marketplaceiti.ProductDetailFragment
 import com.github.candalo.marketplaceiti.R
@@ -88,7 +89,7 @@ class ProductView @JvmOverloads constructor(
     }
 
     fun setImage(imageUrl: String) {
-        Glide.with(context).load(imageUrl).into(imageImageView)
+        Glide.with(context).load(imageUrl).apply(RequestOptions().error(R.drawable.default_image)).into(imageImageView)
     }
 
 }

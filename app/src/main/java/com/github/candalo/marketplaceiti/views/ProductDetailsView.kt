@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.github.candalo.marketplaceiti.R
 
 class ProductDetailsView @JvmOverloads constructor(
@@ -74,7 +75,7 @@ class ProductDetailsView @JvmOverloads constructor(
     }
 
     fun setImage(imageUrl: String) {
-        Glide.with(context).load(imageUrl).into(productImage)
+        Glide.with(context).load(imageUrl).apply(RequestOptions().error(R.drawable.default_image)).into(productImage)
     }
 
     fun getProductsControlView() = productControlView
