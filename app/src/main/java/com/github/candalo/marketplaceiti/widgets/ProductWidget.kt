@@ -11,6 +11,7 @@ import br.com.zup.beagle.annotation.RegisterWidget
 import br.com.zup.beagle.widget.core.WidgetView
 import com.bumptech.glide.Glide
 import com.github.candalo.marketplaceiti.R
+import com.github.candalo.marketplaceiti.views.ProductView
 
 @RegisterWidget
 data class ProductWidget(
@@ -26,30 +27,19 @@ data class ProductWidget(
     val valueSize: Int
 ) : WidgetView() {
 
-    override fun toView(context: Context): View {
-        val view = LayoutInflater.from(context).inflate(R.layout.widget_product, null)
-        val titleTextView = view.findViewById<TextView>(R.id.productTitle)
-        val subtitleTextView = view.findViewById<TextView>(R.id.productSubtitle)
-        val imageImageView = view.findViewById<ImageView>(R.id.productImage)
-        val valueTextView = view.findViewById<TextView>(R.id.productValue)
-
-        loadImage(context, imageImageView)
-        setTextStyle(titleTextView, title, titleColor, titleSize)
-        setTextStyle(subtitleTextView, subtitle, subtitleColor, subtitleSize)
-        setTextStyle(valueTextView, value, valueColor, valueSize)
-
-        return view
-    }
-
-    private fun setTextStyle(textView: TextView, text: String, textColor: String, textSize: Int) {
-        textView.let {
-            it.text = text
-            it.setTextColor(Color.parseColor(textColor))
-            it.textSize = textSize.toFloat()
+    override fun toView(context: Context): View =
+        ProductView(context).apply {
+            setId(this@ProductWidget.id ?: "")
+            setTitle(title)
+            setTitleColor(titleColor)
+            setTitleSize(titleSize.toFloat())
+            setSubTitle(subtitle)
+            setSubTitleColor(subtitleColor)
+            setSubTitleSize(subtitleSize.toFloat())
+            setValue(value)
+            setValueColor(valueColor)
+            setValueSize(valueSize.toFloat())
+            setImage(imageUrl)
         }
-    }
 
-    private fun loadImage(context: Context, imageView: ImageView) {
-        Glide.with(context).load(imageUrl).into(imageView)
-    }
 }

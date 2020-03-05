@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import br.com.zup.beagle.annotation.BeagleComponent
 import br.com.zup.beagle.view.BeagleActivity
 import br.com.zup.beagle.view.ServerDrivenState
-import com.github.candalo.marketplaceiti.widgets.OrderStatusWidget
 import kotlinx.android.synthetic.main.activity_main.*
 
 @BeagleComponent
@@ -15,7 +14,7 @@ class MainActivity : BeagleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        openFragment(OrderStatusFragment.newInstance(OrderStatusWidget.State.Success))
+        openFragment(ProductsFragment())
     }
 
     private fun openFragment(fragment: Fragment) {
