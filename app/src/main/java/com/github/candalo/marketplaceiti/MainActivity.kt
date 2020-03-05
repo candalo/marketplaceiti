@@ -14,7 +14,7 @@ class MainActivity : BeagleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        openFragment(CartProductsFragment())
+        openFragment(ProductsFragment())
     }
 
     fun openFragment(fragment: Fragment, isToAddToBackStack: Boolean = false) {
@@ -30,7 +30,13 @@ class MainActivity : BeagleActivity() {
     override fun getToolbar(): Toolbar = toolbar
 
     override fun onServerDrivenContainerStateChanged(state: ServerDrivenState) {
-        // TODO
     }
 
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStackImmediate()
+        } else {
+            finish()
+        }
+    }
 }
