@@ -17,9 +17,10 @@ class MainActivity : BeagleActivity() {
         openFragment(ProductsFragment())
     }
 
-    private fun openFragment(fragment: Fragment) {
+    fun openFragment(fragment: Fragment, isToAddToBackStack: Boolean = false) {
         supportFragmentManager.beginTransaction().also {
             it.replace(R.id.fragment_container, fragment)
+            if (isToAddToBackStack) it.addToBackStack(null)
             it.commit()
         }
     }

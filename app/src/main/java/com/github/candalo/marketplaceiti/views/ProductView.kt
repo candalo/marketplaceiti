@@ -12,6 +12,8 @@ import br.com.zup.beagle.utils.loadView
 import br.com.zup.beagle.view.BeagleActivity
 import br.com.zup.beagle.view.ScreenRequest
 import com.bumptech.glide.Glide
+import com.github.candalo.marketplaceiti.MainActivity
+import com.github.candalo.marketplaceiti.ProductDetailFragment
 import com.github.candalo.marketplaceiti.R
 
 class ProductView @JvmOverloads constructor(
@@ -34,7 +36,9 @@ class ProductView @JvmOverloads constructor(
             imageImageView = it.findViewById(R.id.productImage)
             isClickable = true
             isFocusable = true
-            setOnClickListener { loadView(context as BeagleActivity, ScreenRequest("/products/${id}")) }
+            setOnClickListener {
+                (context as MainActivity).openFragment(ProductDetailFragment.newInstance(id), true)
+            }
         }
     }
 
