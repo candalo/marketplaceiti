@@ -25,6 +25,7 @@ class ProductControlView @JvmOverloads constructor(
             decrementButton = findViewById(R.id.decrement)
             incrementButton = findViewById(R.id.increment)
             productsNumber = findViewById(R.id.productsNumber)
+            productsNumber.text = productsCount.toString()
 
             decrementButton.setOnClickListener {
                 if (productsCount == 0) return@setOnClickListener
