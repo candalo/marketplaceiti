@@ -32,11 +32,6 @@ class MainActivity : BeagleActivity() {
     override fun getToolbar(): Toolbar = toolbar
 
     override fun onServerDrivenContainerStateChanged(state: ServerDrivenState) {
-//        if (state is ServerDrivenState.Loading) {
-//            progressBar.visibility = if (state.loading) View.VISIBLE else View.GONE
-//        } else if (state is ServerDrivenState.Error) {
-//            Snackbar.make(window.decorView, "Error", Snackbar.LENGTH_LONG).show()
-//        }
     }
 
     override fun onBackPressed() {
