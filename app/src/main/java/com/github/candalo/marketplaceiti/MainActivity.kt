@@ -14,7 +14,7 @@ class MainActivity : BeagleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        openFragment(ProductsFragment())
+        openFragment(CartProductsFragment())
     }
 
     fun openFragment(fragment: Fragment, isToAddToBackStack: Boolean = false) {
